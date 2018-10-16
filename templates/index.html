@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title></title>
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+
+
+    <div class="container">
+       <div class="jumbotron text-center">
+
+        <h1>Mission to Scrape Mars</h1>
+  
+        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+  
+       </div>
+
+
+        <div class="row">
+
+            <div class="col-md-8">
+
+                <div class="row">
+
+                    <div class="col-md-12">
+
+                        <h2>Latest Mars News</h2>
+
+                        <hr>
+
+                        <h3>{{ mars.news_title }}</h3>
+
+                        <p>{{ mars.news_p }}</p>
+
+                    </div>
+
+                    <div class="col-md-12">
+
+                        <h2>Featured Mars Image</h2>
+
+                        <img class="img-fluid" src="{{ mars.featured_image_url }}">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="row">
+
+                    <div class="col-md-12">
+
+                        <div class="media border border-dark">
+
+                            <div class="media-body my-3 mx-1">
+
+                                <h4>Current Weather on Mars</h4>
+
+                                <p>{{ mars.mars_weather }}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12 mt-5">
+
+                        <h4>Mars Facts</h4>
+
+                        <table border="1" class="dataframe">
+
+                            <thead>
+                  
+                              <tr style="text-align: right;">
+                  
+                                <th>Planet Profile</th>
+                  
+                                <th>Values</th>
+                  
+                              </tr>
+                  
+                            </thead>
+                  
+                            <tbody>
+                  
+                              <tr>
+                  
+                                <th>Equatorial Diameter:</th>
+                  
+                                <td>6,792 km</td>
+                  
+                              </tr>
+                  
+                              <tr>
+                  
+                                <th>Polar Diameter:</th>
+                  
+                                <td>6,752 km</td>
+                  
+                              </tr>
+                  
+                              <tr>
+                  
+                                <th>Mass:</th>
+                  
+                                <td>6.42 x 10^23 kg (10.7% Earth)</td>
+                  
+                              </tr>
+                  
+                              <tr>
+                  
+                                <th>Moons:</th>
+                  
+                                <td>2 (Phobos &amp; Deimos)</td>
+                  
+                              </tr>
+                  
+                              <tr>
+                  
+                                <th>Orbit Distance:</th>
+                  
+                                <td>227,943,824 km (1.52 AU)</td>
+                  
+                              </tr>
+                  
+                              <tr>
+                  
+                                <th>Orbit Period:</th>
+                  
+                                <td>687 days (1.9 years)</td>
+                  
+                              </tr>
+                  
+                              <tr>
+                  
+                                <th>Surface Temperature:</th>
+                  
+                                <td>-153 to 20 °C</td>
+                  
+                              </tr>
+                  
+                              <tr>
+                  
+                                <th>First Record:</th>
+                  
+                                <td>2nd millennium BC</td>
+                  
+                              </tr>
+                  
+                              <tr>
+                  
+                                <th>Recorded By:</th>
+                  
+                                <td>Egyptian astronomers</td>
+                  
+                              </tr>
+                  
+                            </tbody>
+                  
+                          </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="row mt-5">
+
+            <div class="col-md-12 text-center">
+
+                <h2>Mars Hemispheres</h2>
+
+                <hr>
+
+            </div>
+
+
+
+        {% for hemi in mars.hemisphere_image_urls %}
+
+        <div class="col-md-6">
+
+            <figure class="figure">
+
+                <img class="figure-img img-fluid my-1" src="{{ hemi.img_url }}">
+
+                <figcaption class="figure-caption"><h4>{{ hemi.title }}</h4></figcaption>
+
+            </figure>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+
+
+</body>
+
+</html>
